@@ -1,0 +1,10 @@
+Change the Project properties:
+
+1. Right-Click on the Project (e.g. SimulationTrial) -> Properties
+2  Set Configuration to "All Configurations"
+3. Goto Configuration Properties -> Linker -> Input.
+4. Set Ignore All Default Libraries: "No"
+5. Set Ignore Specific Default Libraries: "LIBC.lib;LIBCMTD.lib"
+6. Goto Configuration Properties -> Linker -> Advanced 
+7. Set Image Has Safe Exception Handlers:"No (/SAFESEH:NO)" 
+8. Click "OK"-Button.
