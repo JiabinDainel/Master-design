@@ -1663,21 +1663,21 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
          0          0          0          0          0       4244   core_cm3.o
-        82          0          0          0          0        907   hal_clk.o
-       244         20          0          0          0       1282   hal_led.o
-       256          8          0          0          0        888   hal_uart.o
-       216         42          0          8          0       9707   main.o
-         2          0          0          0          0     229508   retarget.o
-        70         12         40          8       4812       3357   rtx_conf_cm.o
-        64         26        304          0       1536        848   startup_stm32f10x_hd.o
-       282          0          0          0          0       3024   stm32f10x_gpio.o
-        20          0          0          0          0       2305   stm32f10x_it.o
-       244         26          0         20          0       3845   stm32f10x_rcc.o
-       240          6          0          0          0       2833   stm32f10x_usart.o
-       324         26          0          0          0       1709   system_stm32f10x.o
+        82          0          0          0          0        899   hal_clk.o
+       244         20          0          0          0       1274   hal_led.o
+       256          8          0          0          0        884   hal_uart.o
+       216         42          0          8          0       9687   main.o
+         2          0          0          0          0     229484   retarget.o
+        70         12         40          8       4812       3341   rtx_conf_cm.o
+        64         26        304          0       1536        856   startup_stm32f10x_hd.o
+       282          0          0          0          0       3012   stm32f10x_gpio.o
+        20          0          0          0          0       2285   stm32f10x_it.o
+       244         26          0         20          0       3829   stm32f10x_rcc.o
+       240          6          0          0          0       2825   stm32f10x_usart.o
+       324         26          0          0          0       1693   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-      2050        166        376         36       6348     264457   Object Totals
+      2050        166        376         36       6348     264313   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          0          0          0          0   (incl. Padding)
 
@@ -1738,8 +1738,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5336        518        380         76       6556     287422   Grand Totals
-      5336        518        380         76       6556     287422   ELF Image Totals
+      5336        518        380         76       6556     287278   Grand Totals
+      5336        518        380         76       6556     287278   ELF Image Totals
       5336        518        380         76          0          0   ROM Totals
 
 ==============================================================================

@@ -142,31 +142,81 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Application\GUIDEMO.c" />
-    <ClCompile Include="Application\GUIDEMO_AntialiasedText.c" />
-    <ClCompile Include="Application\GUIDEMO_Automotive.c" />
-    <ClCompile Include="Application\GUIDEMO_BarGraph.c" />
-    <ClCompile Include="Application\GUIDEMO_Bitmap.c" />
-    <ClCompile Include="Application\GUIDEMO_ColorBar.c" />
-    <ClCompile Include="Application\GUIDEMO_Conf.c" />
-    <ClCompile Include="Application\GUIDEMO_Cursor.c" />
-    <ClCompile Include="Application\GUIDEMO_Fading.c" />
-    <ClCompile Include="Application\GUIDEMO_Graph.c" />
-    <ClCompile Include="Application\GUIDEMO_IconView.c" />
-    <ClCompile Include="Application\GUIDEMO_ImageFlow.c" />
-    <ClCompile Include="Application\GUIDEMO_Intro.c" />
-    <ClCompile Include="Application\GUIDEMO_Listview.c" />
-    <ClCompile Include="Application\GUIDEMO_RadialMenu.c" />
-    <ClCompile Include="Application\GUIDEMO_Resource.c" />
-    <ClCompile Include="Application\GUIDEMO_Skinning.c" />
-    <ClCompile Include="Application\GUIDEMO_Speed.c" />
-    <ClCompile Include="Application\GUIDEMO_Speedometer.c" />
-    <ClCompile Include="Application\GUIDEMO_Start.c" />
-    <ClCompile Include="Application\GUIDEMO_TransparentDialog.c" />
-    <ClCompile Include="Application\GUIDEMO_Treeview.c" />
-    <ClCompile Include="Application\GUIDEMO_VScreen.c" />
-    <ClCompile Include="Application\GUIDEMO_WashingMachine.c" />
-    <ClCompile Include="Application\GUIDEMO_ZoomAndRotate.c" />
+    <ClCompile Include="Application\GUIDEMO.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_AntialiasedText.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Automotive.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_BarGraph.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Bitmap.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_ColorBar.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Conf.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Cursor.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Fading.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Graph.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_IconView.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_ImageFlow.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Intro.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Listview.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_RadialMenu.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Resource.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Skinning.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Speed.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Speedometer.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Start.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_TransparentDialog.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_Treeview.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_VScreen.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_WashingMachine.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Application\GUIDEMO_ZoomAndRotate.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Config\GUIConf.c">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1093,7 +1143,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application\GUIDEMO.h" />
+    <ClInclude Include="Application\GUIDEMO.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Config\GUIConf.h" />
     <ClInclude Include="Config\LCDConf.h" />
     <ClInclude Include="GUI\Include\BUTTON.h" />
