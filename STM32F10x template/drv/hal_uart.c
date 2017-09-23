@@ -1,7 +1,7 @@
 /***************************************************************************** 
 Copyright: CodeGeek@Hu         
 File name: HAl.c  
-Description: BSPÖĞ¼ä¼şÖ§³ÖÎÄ¼ş
+Description: BSPä¸­é—´ä»¶æ”¯æŒæ–‡ä»¶
 Author: HuJiaBin            
 Version:                 
 Date:                 
@@ -12,13 +12,13 @@ History:
 #include "io.h"
 
 /*##############################################################################################
-º¯ÊıÃû³Æ: unsigned int HAL_ClockInit(void) 
-¹¦ÄÜÃèÊö: BSPÊ±ÖÓ³õÊ¼»¯
-Êä¡¡  Èë: 
-Êä¡¡  ³ö: 
-È«¾Ö±äÁ¿:
-µ÷ÓÃÄ£¿é:
-ĞŞ¶©ÀúÊ·: 
+å‡½æ•°åç§°: unsigned int HAL_ClockInit(void) 
+åŠŸèƒ½æè¿°: BSPæ—¶é’Ÿåˆå§‹åŒ–
+è¾“ã€€  å…¥: 
+è¾“ã€€  å‡º: 
+å…¨å±€å˜é‡:
+è°ƒç”¨æ¨¡å—:
+ä¿®è®¢å†å²: 
 ##############################################################################################*/
 hal_status hal_uart_init(hal_uart_param uart_param,hal_status uart_sta)
 {
@@ -33,7 +33,7 @@ hal_status hal_uart_init(hal_uart_param uart_param,hal_status uart_sta)
     }
     else if(hal_close == uart_sta)
     {
-        USART_Cmd(USART1, DISABLE); //¹Ø±Õ´®¿Ú 
+        USART_Cmd(USART1, DISABLE); //å…³é—­ä¸²å£ 
         return hal_OK;
     }
     else
@@ -45,26 +45,26 @@ hal_status hal_uart_init(hal_uart_param uart_param,hal_status uart_sta)
     //init bus clk
     hal_clk_init(hal_uart_1_clk,uart_sta);
     
-    //²¨ÌØÂÊÅäÖÃ 
-    USART_InitStructure.USART_BaudRate = uart_param.bound_rate;//Ò»°ãÉèÖÃÎª9600;
+    //æ³¢ç‰¹ç‡é…ç½® 
+    USART_InitStructure.USART_BaudRate = uart_param.bound_rate;//ä¸€èˆ¬è®¾ç½®ä¸º9600;
     if(uart_8_bit_data == uart_param.data_length)
     {
-        USART_InitStructure.USART_WordLength = USART_WordLength_8b;//×Ö³¤Îª8Î»Êı¾İ¸ñÊ½
+        USART_InitStructure.USART_WordLength = USART_WordLength_8b;//å­—é•¿ä¸º8ä½æ•°æ®æ ¼å¼
     }
     else if(uart_9_bit_data == uart_param.data_length)
     {
-        USART_InitStructure.USART_WordLength = USART_WordLength_9b;//×Ö³¤Îª9Î»Êı¾İ¸ñÊ½
+        USART_InitStructure.USART_WordLength = USART_WordLength_9b;//å­—é•¿ä¸º9ä½æ•°æ®æ ¼å¼
     }
-    //Í£Ö¹Î»ÅäÖÃ 
+    //åœæ­¢ä½é…ç½® 
     if(uart_stop_bit_1 == uart_param.stop_bit)
     {
-        USART_InitStructure.USART_StopBits = USART_StopBits_1;//Ò»¸öÍ£Ö¹Î»
+        USART_InitStructure.USART_StopBits = USART_StopBits_1;//ä¸€ä¸ªåœæ­¢ä½
     }
     else if(uart_stop_bit_2 == uart_param.stop_bit)
     {
-        USART_InitStructure.USART_StopBits = USART_StopBits_2;//2¸öÍ£Ö¹Î»
+        USART_InitStructure.USART_StopBits = USART_StopBits_2;//2ä¸ªåœæ­¢ä½
     }
-    //Ğ£ÑéÎ»ÅäÖÃ
+    //æ ¡éªŒä½é…ç½®
     if(uart_checksum_even == uart_param.checksum_type)
     {
         USART_InitStructure.USART_Parity = USART_Parity_Even;
@@ -78,9 +78,9 @@ hal_status hal_uart_init(hal_uart_param uart_param,hal_status uart_sta)
         USART_InitStructure.USART_Parity = USART_Parity_No;
     }
 
-    USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;//ÎŞÓ²¼şÊı¾İÁ÷¿ØÖÆ
-    USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	//ÊÕ·¢Ä£Ê½
-    USART_Init(USART1, &USART_InitStructure); //³õÊ¼»¯´®¿Ú
+    USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;//æ— ç¡¬ä»¶æ•°æ®æµæ§åˆ¶
+    USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;	//æ”¶å‘æ¨¡å¼
+    USART_Init(USART1, &USART_InitStructure); //åˆå§‹åŒ–ä¸²å£
     
     switch(uart_param.id)
     {
@@ -89,15 +89,15 @@ hal_status hal_uart_init(hal_uart_param uart_param,hal_status uart_sta)
             //USART1_TX   PA.9
             GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9; //PA.9
             GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;	//¸´ÓÃÍÆÍìÊä³ö
-            GPIO_Init(GPIOA, &GPIO_InitStructure); //³õÊ¼»¯PA9       
+            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;	//å¤ç”¨æ¨æŒ½è¾“å‡º
+            GPIO_Init(GPIOA, &GPIO_InitStructure); //åˆå§‹åŒ–PA9       
             //USART1_RX	  PA.10
             GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
-            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;//¸¡¿ÕÊäÈë
-            GPIO_Init(GPIOA, &GPIO_InitStructure);  //³õÊ¼»¯PA10
+            GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;//æµ®ç©ºè¾“å…¥
+            GPIO_Init(GPIOA, &GPIO_InitStructure);  //åˆå§‹åŒ–PA10
         
             //open/close uart
-            USART_Cmd(USART1, drv_sta); //Ê¹ÄÜ´®¿Ú 
+            USART_Cmd(USART1, drv_sta); //ä½¿èƒ½ä¸²å£ 
             break;     
         default:
             
@@ -114,13 +114,13 @@ hal_status hal_uart_init(hal_uart_param uart_param,hal_status uart_sta)
 }
 
 /*##############################################################################################
-º¯ÊıÃû³Æ: unsigned int HAL_ClockInit(void) 
-¹¦ÄÜÃèÊö: BSPÊ±ÖÓ³õÊ¼»¯
-Êä¡¡  Èë: 
-Êä¡¡  ³ö: 
-È«¾Ö±äÁ¿:
-µ÷ÓÃÄ£¿é:
-ĞŞ¶©ÀúÊ·: 
+å‡½æ•°åç§°: unsigned int HAL_ClockInit(void) 
+åŠŸèƒ½æè¿°: BSPæ—¶é’Ÿåˆå§‹åŒ–
+è¾“ã€€  å…¥: 
+è¾“ã€€  å‡º: 
+å…¨å±€å˜é‡:
+è°ƒç”¨æ¨¡å—:
+ä¿®è®¢å†å²: 
 ##############################################################################################*/
 hal_status hal_uart_write_byte(hal_uart_id uart_id,uint8_t write_data)
 {
@@ -136,20 +136,20 @@ hal_status hal_uart_write_byte(hal_uart_id uart_id,uint8_t write_data)
         
     }
     
-    USART_SendData(p_uart_typedef, write_data);//Ïò´®¿Ú1·¢ËÍÊı¾İ
-    while(USART_GetFlagStatus(p_uart_typedef,USART_FLAG_TC)!=SET);//µÈ´ı·¢ËÍ½áÊø
+    USART_SendData(p_uart_typedef, write_data);//å‘ä¸²å£1å‘é€æ•°æ®
+    while(USART_GetFlagStatus(p_uart_typedef,USART_FLAG_TC)!=SET);//ç­‰å¾…å‘é€ç»“æŸ
     
     return hal_OK;
 }
 
 /*##############################################################################################
-º¯ÊıÃû³Æ: unsigned int HAL_ClockInit(void) 
-¹¦ÄÜÃèÊö: BSPÊ±ÖÓ³õÊ¼»¯
-Êä¡¡  Èë: 
-Êä¡¡  ³ö: 
-È«¾Ö±äÁ¿:
-µ÷ÓÃÄ£¿é:
-ĞŞ¶©ÀúÊ·: 
+å‡½æ•°åç§°: unsigned int HAL_ClockInit(void) 
+åŠŸèƒ½æè¿°: BSPæ—¶é’Ÿåˆå§‹åŒ–
+è¾“ã€€  å…¥: 
+è¾“ã€€  å‡º: 
+å…¨å±€å˜é‡:
+è°ƒç”¨æ¨¡å—:
+ä¿®è®¢å†å²: 
 ##############################################################################################*/
 hal_status hal_uart_read_byte(hal_uart_id uart_id,uint8_t *read_data)
 {
@@ -165,19 +165,19 @@ hal_status hal_uart_read_byte(hal_uart_id uart_id,uint8_t *read_data)
         
     }
     
-    while(USART_GetFlagStatus(p_uart_typedef,USART_FLAG_RXNE)!=SET);//µÈ´ıdata registerÊı¾İ
+    while(USART_GetFlagStatus(p_uart_typedef,USART_FLAG_RXNE)!=SET);//ç­‰å¾…data registeræ•°æ®
     *read_data = (uint8_t)USART_ReceiveData(p_uart_typedef);
     return hal_OK;
 }
 
 /*##############################################################################################
-º¯ÊıÃû³Æ: unsigned int HAL_ClockInit(void) 
-¹¦ÄÜÃèÊö: BSPÊ±ÖÓ³õÊ¼»¯
-Êä¡¡  Èë: 
-Êä¡¡  ³ö: 
-È«¾Ö±äÁ¿:
-µ÷ÓÃÄ£¿é:
-ĞŞ¶©ÀúÊ·: 
+å‡½æ•°åç§°: unsigned int HAL_ClockInit(void) 
+åŠŸèƒ½æè¿°: BSPæ—¶é’Ÿåˆå§‹åŒ–
+è¾“ã€€  å…¥: 
+è¾“ã€€  å‡º: 
+å…¨å±€å˜é‡:
+è°ƒç”¨æ¨¡å—:
+ä¿®è®¢å†å²: 
 ##############################################################################################*/
 hal_status hal_uart_write_data_polling(hal_uart_id uart_id,uint8_t *write_data,uint32_t nlen)
 {    
@@ -194,13 +194,13 @@ hal_status hal_uart_write_data_polling(hal_uart_id uart_id,uint8_t *write_data,u
 }
 
 /*##############################################################################################
-º¯ÊıÃû³Æ: unsigned int HAL_ClockInit(void) 
-¹¦ÄÜÃèÊö: BSPÊ±ÖÓ³õÊ¼»¯
-Êä¡¡  Èë: 
-Êä¡¡  ³ö: 
-È«¾Ö±äÁ¿:
-µ÷ÓÃÄ£¿é:
-ĞŞ¶©ÀúÊ·: 
+å‡½æ•°åç§°: unsigned int HAL_ClockInit(void) 
+åŠŸèƒ½æè¿°: BSPæ—¶é’Ÿåˆå§‹åŒ–
+è¾“ã€€  å…¥: 
+è¾“ã€€  å‡º: 
+å…¨å±€å˜é‡:
+è°ƒç”¨æ¨¡å—:
+ä¿®è®¢å†å²: 
 ##############################################################################################*/
 hal_status hal_uart_read_data_polling(hal_uart_id uart_id,uint8_t *read_data,uint32_t nlen)
 {
@@ -217,13 +217,13 @@ hal_status hal_uart_read_data_polling(hal_uart_id uart_id,uint8_t *read_data,uin
 }
 
 /*##############################################################################################
-º¯ÊıÃû³Æ: unsigned int HAL_ClockInit(void) 
-¹¦ÄÜÃèÊö: BSPÊ±ÖÓ³õÊ¼»¯
-Êä¡¡  Èë: 
-Êä¡¡  ³ö: 
-È«¾Ö±äÁ¿:
-µ÷ÓÃÄ£¿é:
-ĞŞ¶©ÀúÊ·: 
+å‡½æ•°åç§°: unsigned int HAL_ClockInit(void) 
+åŠŸèƒ½æè¿°: BSPæ—¶é’Ÿåˆå§‹åŒ–
+è¾“ã€€  å…¥: 
+è¾“ã€€  å‡º: 
+å…¨å±€å˜é‡:
+è°ƒç”¨æ¨¡å—:
+ä¿®è®¢å†å²: 
 ##############################################################################################*/
 hal_status hal_uart_write_data_DMA(hal_uart_id uart_id,uint8_t *write_data,uint32_t nlen)
 {
@@ -231,13 +231,13 @@ hal_status hal_uart_write_data_DMA(hal_uart_id uart_id,uint8_t *write_data,uint3
 }
 
 /*##############################################################################################
-º¯ÊıÃû³Æ: unsigned int HAL_ClockInit(void) 
-¹¦ÄÜÃèÊö: BSPÊ±ÖÓ³õÊ¼»¯
-Êä¡¡  Èë: 
-Êä¡¡  ³ö: 
-È«¾Ö±äÁ¿:
-µ÷ÓÃÄ£¿é:
-ĞŞ¶©ÀúÊ·: 
+å‡½æ•°åç§°: unsigned int HAL_ClockInit(void) 
+åŠŸèƒ½æè¿°: BSPæ—¶é’Ÿåˆå§‹åŒ–
+è¾“ã€€  å…¥: 
+è¾“ã€€  å‡º: 
+å…¨å±€å˜é‡:
+è°ƒç”¨æ¨¡å—:
+ä¿®è®¢å†å²: 
 ##############################################################################################*/
 hal_status hal_uart_read_data_DMA(hal_uart_id uart_id,uint8_t *read_data,uint32_t nlen)
 {

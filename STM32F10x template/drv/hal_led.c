@@ -29,11 +29,11 @@ hal_status hal_led_init(hal_led_id led_id,hal_status led_sta)
             //init io pin
             if(drv_sta == ENABLE)
             {
-                GPIO_InitStructure.GPIO_Pin = LED_1_PIN;				 //LED0-->PB.5 ¶Ë¿ÚÅäÖÃ
-                GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //ÍÆÍìÊä³ö
-                GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO¿ÚËÙ¶ÈÎª50MHz
-                GPIO_Init(LED_1_PIN_INDEX, &GPIO_InitStructure);					 //¸ù¾İÉè¶¨²ÎÊı³õÊ¼»¯GPIOB.5
-                GPIO_SetBits(LED_1_PIN_INDEX,LED_1_PIN);						     //PB.5 Êä³ö¸ß
+                GPIO_InitStructure.GPIO_Pin = LED_1_PIN;				 //LED0-->PB.5 ç«¯å£é…ç½®
+                GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //æ¨æŒ½è¾“å‡º
+                GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IOå£é€Ÿåº¦ä¸º50MHz
+                GPIO_Init(LED_1_PIN_INDEX, &GPIO_InitStructure);					 //æ ¹æ®è®¾å®šå‚æ•°åˆå§‹åŒ–GPIOB.5
+                GPIO_SetBits(LED_1_PIN_INDEX,LED_1_PIN);						     //PB.5 è¾“å‡ºé«˜
             }
             break;
         case hal_led_2:
@@ -42,11 +42,11 @@ hal_status hal_led_init(hal_led_id led_id,hal_status led_sta)
             //init io pin
             if(drv_sta == ENABLE)
             {
-                GPIO_InitStructure.GPIO_Pin = LED_2_PIN;	    		 //LED1-->PE.5 ¶Ë¿ÚÅäÖÃ, ÍÆÍìÊä³ö
-                GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //ÍÆÍìÊä³ö
-                GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO¿ÚËÙ¶ÈÎª50MHz
-                GPIO_Init(LED_2_PIN_INDEX, &GPIO_InitStructure);	  				 //ÍÆÍìÊä³ö £¬IO¿ÚËÙ¶ÈÎª50MHz
-                GPIO_SetBits(LED_2_PIN_INDEX,LED_2_PIN); 	                     //PE.5 Êä³ö¸ß 	
+                GPIO_InitStructure.GPIO_Pin = LED_2_PIN;	    		 //LED1-->PE.5 ç«¯å£é…ç½®, æ¨æŒ½è¾“å‡º
+                GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //æ¨æŒ½è¾“å‡º
+                GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IOå£é€Ÿåº¦ä¸º50MHz
+                GPIO_Init(LED_2_PIN_INDEX, &GPIO_InitStructure);	  				 //æ¨æŒ½è¾“å‡º ï¼ŒIOå£é€Ÿåº¦ä¸º50MHz
+                GPIO_SetBits(LED_2_PIN_INDEX,LED_2_PIN); 	                     //PE.5 è¾“å‡ºé«˜ 	
             }
             break;
         default:

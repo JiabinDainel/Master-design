@@ -1,3 +1,12 @@
+/***************************************************************************** 
+Copyright: CodeGeek@Hu         
+File name: main.c  
+Description: 主文件
+Author: HuJiaBin            
+Version:                 
+Date:                 
+History:        
+*****************************************************************************/
 #include "stm32f10x.h"
 #include "RTL.h"
 #include "hal_led.h"
