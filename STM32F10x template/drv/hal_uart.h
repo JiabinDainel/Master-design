@@ -1,7 +1,7 @@
 /***************************************************************************** 
 Copyright: CodeGeek@Hu         
 File name: HAl.c  
-Description: BSPÖĞ¼ä¼şÖ§³ÖÎÄ¼ş
+Description: BSPä¸­é—´ä»¶æ”¯æŒæ–‡ä»¶
 Author: HuJiaBin            
 Version:                 
 Date:                 
@@ -44,11 +44,11 @@ typedef enum
 
 typedef struct
 {
-    hal_uart_id id; //uartĞòºÅ
-    uint32_t bound_rate; //²¨ÌØÂÊ
-    hal_uart_data_length data_length; //Êı¾İ³¤¶È
-    hal_uart_stop_bit stop_bit; //Í£Ö¹Î»
-    hal_uart_checksum_type checksum_type; //Ğ£ÑéÎ» 
+    hal_uart_id id; //uartåºå·
+    uint32_t bound_rate; //æ³¢ç‰¹ç‡
+    hal_uart_data_length data_length; //æ•°æ®é•¿åº¦
+    hal_uart_stop_bit stop_bit; //åœæ­¢ä½
+    hal_uart_checksum_type checksum_type; //æ ¡éªŒä½ 
     void (*uart_event_callback)(hal_uart_event event ,void *data); //uart callback
     hal_status uart_dma_enable; //uart dma enable
 }hal_uart_param;
