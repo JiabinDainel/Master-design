@@ -1,7 +1,9 @@
+
 #include "stm32f10x.h"
 #include "RTL.h"
 #include "hal.h"
 
+#include "led_ut_test.h"
 
 __task void init_task (void *argv);
 __task void task1 (void *argv);
@@ -18,7 +20,7 @@ int main(void)
 __task void init_task (void *argv)
 {
     tsk1 = os_tsk_create ((void *)task1, 5);
-    tsk2 = os_tsk_create ((void *)task2, 10);
+    //tsk2 = os_tsk_create ((void *)task2, 10);
     
     while(1)
     {
@@ -28,6 +30,9 @@ __task void init_task (void *argv)
 
 __task void task1 (void *argv)
 {
+    //led ut test
+    hal_led_init_test();
+    
     while(1)
     {
         os_dly_wait (100);

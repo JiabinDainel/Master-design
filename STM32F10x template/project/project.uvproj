@@ -375,7 +375,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\CMSIS\CM3\CoreSupport;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\app;..\RTX;..\drv\inc</IncludePath>
+              <IncludePath>..\Libraries\CMSIS\CM3\CoreSupport;..\Libraries\STM32F10x_StdPeriph_Driver\inc;..\app;..\RTX;..\drv\inc;..\ut_test</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -658,6 +658,16 @@
               <FileName>io.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\drv\inc\io.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ut_test</GroupName>
+          <Files>
+            <File>
+              <FileName>led_ut_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ut_test\led_ut_test.c</FilePath>
             </File>
           </Files>
         </Group>

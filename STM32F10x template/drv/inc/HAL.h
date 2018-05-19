@@ -74,6 +74,9 @@ __packed typedef enum
 
 #endif
 
+unsigned int HAL_init(void);
+
+
 unsigned int HAL_ClockInit(void);
 
 unsigned int HAL_LEDInit(unsigned int nLEDNum,unsigned char nLEDSta);

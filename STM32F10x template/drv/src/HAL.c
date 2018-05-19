@@ -23,13 +23,13 @@ static OS_MUT m_sMut_led_2;
 修订历史: 
 ##############################################################################################*/
 unsigned int HAL_init(void)
-{
-    //系统应用初始化
-    os_mut_init (&m_sMut_led_1);
-    os_mut_init (&m_sMut_led_2);
+{ 
+    //BUS clk初始化
+    HAL_ClockInit();
 
     //LED驱动初始化
-    //HAL_LEDInit(LED_1,);
+    HAL_LEDInit(LED_1,LED_OFF);
+    HAL_LEDInit(LED_2,LED_OFF);
 }
 
 
@@ -66,6 +66,10 @@ unsigned int HAL_LEDInit(unsigned int nLEDNum,unsigned char nLEDSta)
 {
     #ifdef USE_STM32F103
         LEDData_t sLEDData;
+
+        //系统应用初始化
+        os_mut_init (&m_sMut_led_1);
+        os_mut_init (&m_sMut_led_2);
     
         switch(nLEDNum) 
         {
@@ -84,10 +88,10 @@ unsigned int HAL_LEDInit(unsigned int nLEDNum,unsigned char nLEDSta)
             switch(nLEDNum) 
             {
                 case LED_1:
-                    os_mut_wait (&m_sMut_led_1, 0xffff);
+                    os_mut_release (&m_sMut_led_1);
                     break;
                 case LED_2:
-                    os_mut_wait (&m_sMut_led_2, 0xffff);
+                    os_mut_release (&m_sMut_led_2);
                     break;
                 default:
                     break;
@@ -99,10 +103,10 @@ unsigned int HAL_LEDInit(unsigned int nLEDNum,unsigned char nLEDSta)
             switch(nLEDNum) 
             {
                 case LED_1:
-                    os_mut_wait (&m_sMut_led_1, 0xffff);
+                    os_mut_release (&m_sMut_led_1);
                     break;
                 case LED_2:
-                    os_mut_wait (&m_sMut_led_2, 0xffff);
+                    os_mut_release (&m_sMut_led_2);
                     break;
                 default:
                     break;
@@ -127,13 +131,49 @@ unsigned int HAL_LEDCtrl(unsigned int nLEDNum,unsigned char nLEDSta)
 {
     #ifdef USE_STM32F103
         LEDData_t sLEDData;
+
+        switch(nLEDNum) 
+        {
+            case LED_1:
+                os_mut_wait (&m_sMut_led_1, 0xffff);
+                break;
+            case LED_2:
+                os_mut_wait (&m_sMut_led_2, 0xffff);
+                break;
+            default:
+                break;
+        }
     
         if (LEDCtrl(nLEDNum,nLEDSta,&sLEDData))
         {
+            switch(nLEDNum) 
+            {
+                case LED_1:
+                    os_mut_release (&m_sMut_led_1);
+                    break;
+                case LED_2:
+                    os_mut_release (&m_sMut_led_2);
+                    break;
+                default:
+                    break;
+            }
+            
             return HAL_OK;
         }
         else
         {
+            switch(nLEDNum) 
+            {
+                case LED_1:
+                    os_mut_release (&m_sMut_led_1);
+                    break;
+                case LED_2:
+                    os_mut_release (&m_sMut_led_2);
+                    break;
+                default:
+                    break;
+            }
+            
             return HAL_ERR;
         }
     #else

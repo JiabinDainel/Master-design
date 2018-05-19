@@ -1,6 +1,4 @@
----- g_sMut_Send_UART1 Matches (5 in 1 files) ----
-UART.c (c:\users\hujiabin\desktop\stm32f10x template\drv\src):OS_MUT g_sMut_Send_UART1; //串口1发送锁
-UART.c (c:\users\hujiabin\desktop\stm32f10x template\drv\src):        os_mut_init (&g_sMut_Send_UART1);
-UART.c (c:\users\hujiabin\desktop\stm32f10x template\drv\src):    os_mut_wait (&g_sMut_Send_UART1, 0xffff);
-UART.c (c:\users\hujiabin\desktop\stm32f10x template\drv\src):    os_mut_release (&g_sMut_Send_UART1);
-UART.c (c:\users\hujiabin\desktop\stm32f10x template\drv\src):        os_mut_release (&g_sMut_Send_UART1);
+---- LEDInit Matches (3 in 3 files) ----
+HAL.c (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\drv\src):        if (LEDInit(nLEDNum,nLEDSta,&sLEDData))
+LED.c (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\drv\src):uint8_t LEDInit(uint16_t nLEDNum,uint8_t nLEDSta,LEDData_t *pData)
+LED.h (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\drv\inc):uint8_t LEDInit(uint16_t nLEDNum,uint8_t nLEDSta,LEDData_t *pData);
