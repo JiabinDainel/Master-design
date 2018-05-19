@@ -48,8 +48,10 @@ __packed typedef struct
 uint8_t UARTDataStructInit(UARTData_t *pData,uint8_t *pSendBuf,uint8_t *pRecvBuf);
 uint8_t ResetUARTCurrentRecvDataIndex(uint8_t nCOMNum);
 uint8_t UARTInit(uint8_t nComNum,uint32_t nBoundRate,uint16_t nDataLength,uint16_t nStopBit,uint16_t nParity);
-uint8_t UARTSendData(uint8_t nComNum,uint8_t *pSendData,uint32_t nLen);
-uint32_t UARTRecvData(uint8_t nComNum,uint8_t *pRecvData);
+uint8_t UARTSendDataBlocking(uint8_t nComNum,uint8_t *pSendData,uint32_t nLen);
+uint8_t UARTReceiveDataBlocking(uint8_t nComNum,uint8_t *pReceiveData,uint32_t nLen);
+
+
 
 
 #endif

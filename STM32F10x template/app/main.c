@@ -3,8 +3,6 @@
 #include "RTL.h"
 #include "hal.h"
 
-#include "led_ut_test.h"
-
 __task void init_task (void *argv);
 __task void task1 (void *argv);
 __task void task2 (void *argv);
@@ -30,12 +28,17 @@ __task void init_task (void *argv)
 
 __task void task1 (void *argv)
 {
-    //led ut test
-    hal_led_init_test();
+    uint8_t receive_data[64];
+
+    memset(receive_data,0,sizeof(receive_data));
+    
+    HAL_init();
     
     while(1)
     {
-        os_dly_wait (100);
+        UARTReceiveDataBlocking(UART_1,receive_data,sizeof("hello world stm32 platform\r\n"));
+        HAL_UartSendData(UART_1,receive_data,sizeof("hello world stm32 platform\r\n"));
+        os_dly_wait (10);
     }
 }
 

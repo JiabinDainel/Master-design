@@ -118,19 +118,19 @@ uint8_t UARTInit(uint8_t nComNum,uint32_t nBoundRate,uint16_t nDataLength,uint16
         USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;//收发模式
         USART_Init(USART1, &USART_InitStructure); //初始化串口
         //初始化 NVIC
-        NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-        NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2 ; //抢占优先级 3
-        NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;  //子优先级 3
-        NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;  //IRQ 通道使能
-        NVIC_Init(&NVIC_InitStructure);   //中断优先级初始化
+        //NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+        //NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2 ; //抢占优先级 3
+        //NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;  //子优先级 3
+        //NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;  //IRQ 通道使能
+        //NVIC_Init(&NVIC_InitStructure);   //中断优先级初始化
         //开启中断
-        USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); //开启中断
+        //USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); //开启中断
         //使能串口
         USART_Cmd(USART1, ENABLE);   //使能串口
         //打开串口超时硬件定时器
-        TimerInit(TIMER_3,99,7199); //10ms超时
+        //TimerInit(TIMER_3,99,7199); //10ms超时
         //关闭定时器
-        TimerCtrl(TIMER_3,0);
+        //TimerCtrl(TIMER_3,0);
         break;
     default:
         return UART_ERR; //失败
@@ -147,7 +147,7 @@ uint8_t UARTInit(uint8_t nComNum,uint32_t nBoundRate,uint16_t nDataLength,uint16
 调用模块:
 修订历史: 
 ##############################################################################################*/
-void USART1_IRQHandler(void)
+static void USART1_IRQHandler(void)
 {
     uint8_t nData = 0; 
 
@@ -172,7 +172,7 @@ void USART1_IRQHandler(void)
 }
 
 /*##############################################################################################
-函数名称: uint8_t UARTSendByte(uint8_t nCOMNum,uint8_t nData)
+函数名称: uint8_t UARTSendByteBlcoking(uint8_t nCOMNum,uint8_t nData)
 功能描述: 串口发送字节
 输　  入: 
 输　  出: 
@@ -180,12 +180,12 @@ void USART1_IRQHandler(void)
 调用模块:
 修订历史: 
 ##############################################################################################*/
-static uint8_t UARTSendByte(uint8_t nComNum,uint8_t nData)
+static uint8_t UARTSendByteBlcoking(uint8_t nComNum,uint8_t nData)
 {
     switch(nComNum)
     {
     case UART_1:
-        while(USART_GetFlagStatus(USART1,USART_FLAG_TC)==RESET); //确定上一个字节发送完毕
+        while(USART_GetFlagStatus(USART1,USART_FLAG_TC) == RESET); //确定上一个字节发送完毕
         USART_SendData(USART1,nData); //发送数据
         return UART_OK; //成功
     default:
@@ -195,7 +195,31 @@ static uint8_t UARTSendByte(uint8_t nComNum,uint8_t nData)
 }
 
 /*##############################################################################################
-函数名称: 
+函数名称: uint8_t UARTReceiveByteBlocking(uint8_t nCOMNum,uint8_t nData)
+功能描述: 串口发接收字节
+输　  入: 
+输　  出: 
+全局变量:
+调用模块:
+修订历史: 
+##############################################################################################*/
+static uint8_t UARTReceiveByteBlocking(uint8_t nCOMNum,uint8_t *pData)
+{
+    switch(nCOMNum)
+    {
+    case UART_1:
+        while(USART_GetFlagStatus(USART1,USART_FLAG_RXNE) == RESET); //确定字节接收完毕
+        *pData = USART_ReceiveData(USART1); //接收数据
+        return UART_OK; //成功
+    default:
+        break;
+    }
+    return UART_ERR;
+}
+
+
+/*##############################################################################################
+函数名称: uint8_t UARTSendDataBlocking(uint8_t nComNum,uint8_t *pSendData,uint32_t nLen)
 功能描述: 串口发送任意长度数据 
 输　  入: 
 输　  出: 
@@ -203,7 +227,7 @@ static uint8_t UARTSendByte(uint8_t nComNum,uint8_t nData)
 调用模块:
 修订历史: 
 ##############################################################################################*/
-uint8_t UARTSendData(uint8_t nComNum,uint8_t *pSendData,uint32_t nLen)
+uint8_t UARTSendDataBlocking(uint8_t nComNum,uint8_t *pSendData,uint32_t nLen)
 {
     uint32_t nLenTmp = nLen;
 
@@ -216,7 +240,7 @@ uint8_t UARTSendData(uint8_t nComNum,uint8_t *pSendData,uint32_t nLen)
     
     while(nLenTmp != 0)
     {
-        if(UARTSendByte(nComNum,*pSendData) == UART_OK)
+        if(UARTSendByteBlcoking(nComNum,*pSendData) == UART_OK)
         {
             pSendData++;
             nLenTmp--;
@@ -232,6 +256,32 @@ uint8_t UARTSendData(uint8_t nComNum,uint8_t *pSendData,uint32_t nLen)
     
     return UART_OK;
 }
+
+/*##############################################################################################
+函数名称: uint8_t UARTSendDataBlocking(uint8_t nComNum,uint8_t *pSendData,uint32_t nLen)
+功能描述: 串口发送任意长度数据 
+输　  入: 
+输　  出: 
+全局变量:
+调用模块:
+修订历史: 
+##############################################################################################*/
+uint8_t UARTReceiveDataBlocking(uint8_t nComNum,uint8_t *pReceiveData,uint32_t nLen)
+{
+    uint8_t data = 0;
+    
+    
+    do {
+         UARTReceiveByteBlocking(nComNum,&data);
+        *pReceiveData = data;
+        pReceiveData++;
+        nLen--;
+    }
+    while(nLen);
+ 
+    return UART_OK;
+}
+
 
 /*##############################################################################################
 函数名称: 

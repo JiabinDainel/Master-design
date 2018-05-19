@@ -30,6 +30,10 @@ unsigned int HAL_init(void)
     //LED驱动初始化
     HAL_LEDInit(LED_1,LED_OFF);
     HAL_LEDInit(LED_2,LED_OFF);
+    
+    //UART驱动初始化
+    HAL_UartInit(UART_1,9600,USART_WordLength_8b,USART_StopBits_1,USART_Parity_No);
+    return HAL_OK;
 }
 
 
@@ -218,7 +222,7 @@ unsigned int HAL_UartInit(unsigned char nComNum,unsigned int nBoundRate,unsigned
 unsigned int HAL_UartSendData(unsigned char nComNum,unsigned char *pSendData,unsigned int nLen)
 {
     #ifdef USE_STM32F103
-        UARTSendData(nComNum,pSendData,nLen);
+        UARTSendDataBlocking(nComNum,pSendData,nLen);
         return HAL_OK;
     #else
         return HAL_ERR;
