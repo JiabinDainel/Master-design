@@ -1,0 +1,6 @@
+---- g_sMut_Send_UART1 Matches (5 in 1 files) ----
+UART.c (c:\users\hujiabin\desktop\stm32f10x template\drv\src):OS_MUT g_sMut_Send_UART1; //´®¿Ú1·¢ËÍËø
+UART.c (c:\users\hujiabin\desktop\stm32f10x template\drv\src):        os_mut_init (&g_sMut_Send_UART1);
+UART.c (c:\users\hujiabin\desktop\stm32f10x template\drv\src):    os_mut_wait (&g_sMut_Send_UART1, 0xffff);
+UART.c (c:\users\hujiabin\desktop\stm32f10x template\drv\src):    os_mut_release (&g_sMut_Send_UART1);
+UART.c (c:\users\hujiabin\desktop\stm32f10x template\drv\src):        os_mut_release (&g_sMut_Send_UART1);
