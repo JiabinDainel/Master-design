@@ -659,6 +659,11 @@
               <FileType>5</FileType>
               <FilePath>..\drv\inc\io.h</FilePath>
             </File>
+            <File>
+              <FileName>SRAM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drv\src\SRAM.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

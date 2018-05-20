@@ -1,4 +1,9 @@
----- LEDInit Matches (3 in 3 files) ----
-HAL.c (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\drv\src):        if (LEDInit(nLEDNum,nLEDSta,&sLEDData))
-LED.c (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\drv\src):uint8_t LEDInit(uint16_t nLEDNum,uint8_t nLEDSta,LEDData_t *pData)
-LED.h (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\drv\inc):uint8_t LEDInit(uint16_t nLEDNum,uint8_t nLEDSta,LEDData_t *pData);
+---- HAL_ClockInit Matches (9 in 4 files) ----
+HAL.c (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\drv\src):    HAL_ClockInit();
+HAL.c (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\drv\src):unsigned int HAL_ClockInit(void)
+HAL.h (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\drv\inc):unsigned int HAL_ClockInit(void);
+Led_ut_test.c (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\ut_test):    HAL_ClockInit();
+Project.htm (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\out):<P><STRONG><a name="[72]"></a>HAL_ClockInit</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, hal.o(i.HAL_ClockInit))
+Project.htm (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\out):<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_ClockInit &rArr; RCCInit
+Project.htm (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\out):<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ClockInit
+Project.htm (c:\users\hujiabin\desktop\毕业设计 git hub branch\master-design\stm32f10x template\out):<BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ClockInit

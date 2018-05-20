@@ -13,6 +13,9 @@ History:
 //使用STM32F103的主控IC
 #define USE_STM32F103 
 
+//使用RTX RTOS
+#define USE_RTX_RTOS
+
 //引用BSP头文件
 #include "stm32f10x.h"
 #include "LED.h"

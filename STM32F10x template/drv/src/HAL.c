@@ -10,8 +10,10 @@ History:
 #include "HAL.h"
 
 //os系统应用
-static OS_MUT m_sMut_led_1;
-static OS_MUT m_sMut_led_2;
+#ifdef USE_RTX_RTOS
+    static OS_MUT m_sMut_led_1;
+    static OS_MUT m_sMut_led_2;
+#endif
 
 /*##############################################################################################
 函数名称: 

@@ -27,6 +27,10 @@ void RCCInit(void)
     // ±÷” πƒ‹
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE); 
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOE | RCC_APB2Periph_GPIOB , ENABLE);
+
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD|RCC_APB2Periph_GPIOE|RCC_APB2Periph_GPIOF|RCC_APB2Periph_GPIOG,ENABLE);
+    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_FSMC,ENABLE);
+  
 }
 
 #endif
