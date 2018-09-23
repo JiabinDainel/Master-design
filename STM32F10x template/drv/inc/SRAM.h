@@ -9,8 +9,8 @@ History:
 *****************************************************************************/ 
 #include "HAL.h"
 
-#ifndef _RCC_H
-#define _RCC_H
+#ifndef _SRAM_H
+#define _SRAM_H
 
 #ifdef USE_STM32F103
 

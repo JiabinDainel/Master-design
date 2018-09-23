@@ -115,14 +115,43 @@ uint8_t SPIWriteReadData(uint8_t nSPINum,uint8_t nTxData)
 调用模块:
 修订历史: 
 ##############################################################################################*/
-uint8_t SPI_CSCtrl(uint8_t nSPINum,uint8_t nCSNum,uint8_t nSta)
+uint8_t SPI_SetSpeed(uint8_t nSPINum,u8 SPI_BaudRatePrescaler)
+{
+    SPI_TypeDef *spi_cfg;
+    
+  	assert_param(IS_SPI_BAUDRATE_PRESCALER(SPI_BaudRatePrescaler));
+    
+    switch(nSPINum)
+    {
+        case SPI_2:
+            spi_cfg = SPI2;
+            break;
+    }
+    
+	spi_cfg->CR1&=0XFFC7;
+	spi_cfg->CR1|=SPI_BaudRatePrescaler;	//设置SPI2速度 
+	SPI_Cmd(spi_cfg,ENABLE); 
+    
+    return SPI_OK;  
+} 
+
+/*##############################################################################################
+函数名称: 
+功能描述: SPI片选信号控制
+输　  入: 
+输　  出: 
+全局变量:
+调用模块:
+修订历史: 
+##############################################################################################*/
+uint8_t SPI_CSCtrl(uint8_t nSPINum,SPI2_CS_e nCSNum,uint8_t nSta)
 {
     switch(nSPINum)
     {
         case SPI_2:
             switch(nCSNum)
             {
-                case W25Q16: //FLASH控制
+                case W25Q64: //FLASH控制
                     //拉低FLASH，其他拉高
                     if(nSta == CS_HIGH)
                     {

@@ -28,7 +28,8 @@ __task void init_task (void *argv)
 
 __task void task1 (void *argv)
 {
-    uint8_t receive_data[64];
+    //uart ≤‚ ‘
+    /*uint8_t receive_data[64];
 
     memset(receive_data,0,sizeof(receive_data));
     
@@ -39,6 +40,30 @@ __task void task1 (void *argv)
         UARTReceiveDataBlocking(UART_1,receive_data,sizeof("hello world stm32 platform\r\n"));
         HAL_UartSendData(UART_1,receive_data,sizeof("hello world stm32 platform\r\n"));
         os_dly_wait (10);
+    }*/
+
+    //sram ≤‚ ‘
+    /*volatile uint8_t test_data = 0;
+    
+    FSMC_SRAM_Init();
+    
+    fsmc_sram_test_write(0xaa,0);
+    test_data = fsmc_sram_test_read(0);*/
+    
+    //spi flash ≤‚ ‘
+    static uint8_t write_buf[256];
+    static uint8_t read_buf[256];
+    
+    memset(write_buf,0xaa,sizeof(write_buf));
+    memset(read_buf,0x0,sizeof(read_buf));
+    SPI_Flash_Init();
+    SPI_Flash_Write(write_buf,0,sizeof(write_buf));
+    SPI_Flash_Read(read_buf,0,sizeof(read_buf));
+    
+    
+    while(1)
+    {
+         os_tsk_pass();
     }
 }
 

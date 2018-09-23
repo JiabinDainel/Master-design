@@ -598,6 +598,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>FatFS</GroupName>
+        </Group>
+        <Group>
           <GroupName>drv</GroupName>
           <Files>
             <File>
@@ -665,6 +668,11 @@
               <FileType>1</FileType>
               <FilePath>..\drv\src\SRAM.c</FilePath>
             </File>
+            <File>
+              <FileName>W25Q64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drv\src\W25Q64.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -674,6 +682,21 @@
               <FileName>led_ut_test.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ut_test\led_ut_test.c</FilePath>
+            </File>
+            <File>
+              <FileName>ex_sram_ut_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ut_test\ex_sram_ut_test.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart_ut_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ut_test\uart_ut_test.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi_flash_ut_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ut_test\spi_flash_ut_test.c</FilePath>
             </File>
           </Files>
         </Group>
